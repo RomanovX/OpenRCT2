@@ -54,11 +54,11 @@ typedef struct{
 	uint16 var_00;				// 0x00 , 0x1A
 	uint8 var_02;				// 0x02 , 0x1C
 	uint8 var_03;				// 0x03 , 0x1D
-	uint32 var_04;				// 0x04 , 0x1E
-	uint16 var_08;				// 0x08 , 0x22
+	uint32 spacing;				// 0x04 , 0x1E
+	uint16 friction;			// 0x08 , 0x22
 	sint8 var_0A;				// 0x0A , 0x24
 	uint8 pad_0B;
-	uint16 var_0C;				// 0x0C , 0x26
+	uint16 available_sprites;	// 0x0C , 0x26
 	uint8 var_0E;				// 0x0E , 0x28
 	uint8 var_0F;				// 0x0F , 0x29
 	uint8 var_10;				// 0x10 , 0x2A
@@ -82,10 +82,11 @@ typedef struct{
 	uint32 var_4C;				// 0x4C , 0x66
 	uint32 no_vehicle_images;	// 0x50 , 0x6A
 	uint8 no_seating_rows;		// 0x54 , 0x6E
-	uint8 pad_55[0x2];
+	uint8 spinning_inertia;		// 0x55 , 0x6F
+	uint8 spinning_friction;	// 0x56 , 0x70
 	uint8 var_57;				// 0x57 , 0x71
 	uint8 pad_58;
-	uint8 sound_range;				// 0x59 , 0x73
+	uint8 sound_range;			// 0x59 , 0x73
 	uint8 var_5A;				// 0x5A , 0x74
 	uint8 pad_5B;				// 0x5B , 0x75
 	uint8 var_5C;				// 0x5C , 0x76
@@ -108,18 +109,23 @@ typedef struct {
 	uint8 min_cars_in_train;		// 0x00F
 	uint8 max_cars_in_train;		// 0x010
 	uint8 var_011;
-	uint8 var_012;
-	uint8 var_013;
-	uint8 var_014;
-	uint8 pad_015[0x5];
+	// Number of cars that can't hold passengers
+	uint8 no_zero_cars;				// 0x012
+	// The index to the vehicle type displayed in
+	// the vehicle tab.
+	uint8 vehicle_tab_index;		// 0x013
+	uint8 default_vehicle;			// 0x014
+	// Convert from first - fourth vehicle to
+	// vehicle structure
+	uint8 vehicle_index[4];			// 0x015
+	uint8 pad_01F;
 	rct_ride_type_vehicle vehicles[4]; // 0x1A
 	uint32 var_1AE;
 	sint8 excitement_multipler;		// 0x1B2
 	sint8 intensity_multipler;		// 0x1B3
 	sint8 nausea_multipler;			// 0x1B4
-	uint8 pad_1B5;
-	uint32 var_1B6;
-	uint8 pad_1BA[0x04];
+	uint8 additional_max_height;	// 0x1B5
+	uint64 available_track_sections;// 0x1B6
 	uint8 category[2];				// 0x1BE
 	uint8 shop_item;				// 0x1C0
 	uint8 shop_item_secondary;		// 0x1C1
